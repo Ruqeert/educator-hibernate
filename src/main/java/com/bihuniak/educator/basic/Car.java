@@ -32,6 +32,19 @@ public class Car {
         this.wheels = wheels;
         this.secondHand = secondHand;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                ", engineCapacity=" + engineCapacity +
+                ", wheels=" + wheels +
+                ", secondHand=" + secondHand +
+                '}';
+    }
+
     public Car() {
 
     }
