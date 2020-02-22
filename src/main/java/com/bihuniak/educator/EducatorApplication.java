@@ -30,7 +30,7 @@ public class EducatorApplication {
 
 
 //		myFirstRepository.saveAll(asList(car1, car2, car3, car4));
-		Car car = myFirstRepository.findById(4L).get();
-		System.out.println(car);
+//		Car car = myFirstRepository.findById(4L).get();
+//		System.out.println(car);
 	}
 }

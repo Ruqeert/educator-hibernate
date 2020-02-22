@@ -1,9 +1,6 @@
 package com.bihuniak.educator.basic;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -12,15 +9,12 @@ public class Car {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+
     private long id;
-
+    @Access(value = AccessType.PROPERTY)
     private String model;
-
-
-
     private String brand;
+    @Column(name = "pojemnosc")
     private double engineCapacity;
     private int wheels;
     private boolean secondHand;
@@ -43,6 +37,55 @@ public class Car {
                 ", wheels=" + wheels +
                 ", secondHand=" + secondHand +
                 '}';
+    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public double getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(double engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
+    }
+
+    public boolean isSecondHand() {
+        return secondHand;
+    }
+
+    public void setSecondHand(boolean secondHand) {
+        this.secondHand = secondHand;
     }
 
     public Car() {
