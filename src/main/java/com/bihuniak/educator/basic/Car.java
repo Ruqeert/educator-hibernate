@@ -9,7 +9,7 @@ public class Car {
         this.id = id;
     }
 
-
+    @Basic (optional = false)
     private long id;
     @Access(value = AccessType.PROPERTY)
     private String model;
