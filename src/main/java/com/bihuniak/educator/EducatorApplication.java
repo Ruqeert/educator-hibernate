@@ -5,16 +5,11 @@ import com.bihuniak.educator.Company.DepartmentRepository;
 import com.bihuniak.educator.Company.Employee;
 import com.bihuniak.educator.Company.EmployeeRepository;
 import com.bihuniak.educator.basic.MyFirstRepository;
-import com.bihuniak.educator.human.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.util.Arrays.asList;
 
@@ -44,15 +39,16 @@ public class EducatorApplication {
 //		humanRepository.save(Human1);
 //
 		Department department = new Department("Marketing","Wroclaw", 5);
-		departmentRepository.save(department);
+
 		Employee employee1 = new Employee("Develop", "Kazik Woźniak");
 		Employee employee2 = new Employee("Marketer", "Marsell Extasy");
 		Employee employee3 = new Employee("Just badass", "Adamo Truchanov");
 		Employee employee4 = new Employee("Cleaner", "Marta Kucyk");
 
-		employeeRepository.saveAll(asList(employee1,employee2,employee3,employee4));
-		System.out.println(departmentRepository.findById(4L).get());
-		System.out.println(employeeRepository.findById(3L).get());
+		department.setEmployee(asList(employee1,employee2,employee3,employee4));
+		departmentRepository.save(department);
+//		System.out.println(departmentRepository.findById(4L).get());
+//		System.out.println(employeeRepository.findById(3L).get());
 
 	}
 }

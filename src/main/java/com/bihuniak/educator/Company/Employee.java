@@ -20,18 +20,16 @@ public class Employee {
     @GeneratedValue
     private long id;
 
+//    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+//    @JoinTable
+    private Department department;
+
     private String position;
     private String surname;
 
-    @OneToOne(cascade =  CascadeType.ALL)
-    private Department department;
-
-    public Employee(String position, String surname, Department department) {
+    public Employee(String position, String surname) {
         this.position = position;
         this.surname = surname;
-        this.department = department;
-    }
-
-    public Employee(String develop, String kazik_woźniak) {
     }
 }

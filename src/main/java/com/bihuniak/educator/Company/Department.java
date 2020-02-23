@@ -1,10 +1,15 @@
 package com.bihuniak.educator.Company;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Department {
 
+    public void setEmployee(List<Employee> employee) {
+        this.employee = employee;
+    }
 
     @Id
     @GeneratedValue
@@ -14,8 +19,9 @@ public class Department {
     private String adress;
     private int floor;
 
-    @OneToOne(cascade =  CascadeType.ALL)
-    private Employee employee;
+  @OneToMany(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "departmentId")
+  private List<Employee> employee = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -36,7 +42,7 @@ public class Department {
     public Department() {
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
 }
